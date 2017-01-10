@@ -1,11 +1,3 @@
-# Class: eclipse::plugin::m2e_buildhelper
-#
-# This class installs the Eclipse M2E APT Connector
-#
-# Sample Usage:
-#
-#  include eclipse::plugin::m2e_apt
-#
 class eclipse::plugin::bndtools (
   $method           = 'package',
   $ensure           = present
@@ -19,7 +11,7 @@ class eclipse::plugin::bndtools (
   eclipse::plugin { 'bndtools':
     iu         => 'bndtools.main.feature.feature.group',
     method     => $method,
-    repository => "${repository},${eclipse::repository}"
+    repository => $repository
   }
 
 }
