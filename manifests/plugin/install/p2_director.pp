@@ -27,6 +27,7 @@ define eclipse::plugin::install::p2_director (
     exec { "eclipse-p2-director: install ${title}":
       command => "${eclipse_cmd} -repository '${repository_url}' -installIU '${iu}'",
       unless  => $check_cmd,
+	  timeout => 1800,
       require => Class['eclipse']
     }
   } else {
